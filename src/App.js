@@ -11,17 +11,11 @@ function App() {
     console.log(user);
   }
 
-  function handleNameInput(e) {
+  function handleInput(e, input) {
+    const value = e.target.type === 'number' ? +e.target.value : e.target.value;
     setUser({
       ...user,
-      name: e.target.value,
-    });
-  }
-
-  function handleAgeInput(e) {
-    setUser({
-      ...user,
-      age: +e.target.value,
+      [input]: value,
     });
   }
 
@@ -29,13 +23,13 @@ function App() {
     <div className="d-flex flex-column justify-content-center align-items-center p-20">
       <form className="d-flex flex-column card p-20">
         <input
-          onInput={handleNameInput}
+          onInput={(e) => handleInput(e, 'name')}
           type="text"
           className="mb-20"
           placeholder="Nom"
         />
         <input
-          onInput={handleAgeInput}
+          onInput={(e) => handleInput(e, 'age')}
           type="number"
           className="mb-20"
           placeholder="Age"
