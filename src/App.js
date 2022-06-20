@@ -22,6 +22,11 @@ function App() {
     });
   }
 
+  function handleClickDeleteUser(index) {
+    const newList = usersList.filter((u, i) => i !== index);
+    setUsersList(newList);
+  }
+
   return (
     <div className="d-flex flex-column justify-content-center align-items-center p-20 ">
       <form className="d-flex flex-column card p-20 mb-20">
@@ -42,8 +47,16 @@ function App() {
         </button>
       </form>
       <ul className="d-flex flex-column card p-20">
-        {usersList.map((u) => (
-          <li key={u.name}>{u.name}</li>
+        {usersList.map((u, index) => (
+          <li key={u.name} className="d-flex mb-20">
+            <span className="flex-fill mr-5">{u.name}</span>
+            <button
+              onClick={() => handleClickDeleteUser(index)}
+              className="btn btn-primary"
+            >
+              Supprimer
+            </button>
+          </li>
         ))}
       </ul>
     </div>
