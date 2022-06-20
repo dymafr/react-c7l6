@@ -21,7 +21,7 @@ function App() {
   function handleAgeInput(e) {
     setUser({
       ...user,
-      age: e.target.value,
+      age: +e.target.value,
     });
   }
 
