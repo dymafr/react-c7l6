@@ -12,10 +12,18 @@ function App() {
   }
 
   function handleNameInput(e) {
-    setUser()
+    setUser({
+      ...user,
+      name: e.target.value,
+    });
   }
 
-  function handleAgeInput(e) {}
+  function handleAgeInput(e) {
+    setUser({
+      ...user,
+      age: e.target.value,
+    });
+  }
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center p-20">
