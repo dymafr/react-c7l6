@@ -27,6 +27,12 @@ function App() {
     setUsersList(newList);
   }
 
+  function handleClickSort() {
+    const newList = [...usersList];
+    newList.sort((a, b) => a.name.localeCompare(b.name));
+    setUsersList(newList);
+  }
+
   return (
     <div className="d-flex flex-column justify-content-center align-items-center p-20 ">
       <form className="d-flex flex-column card p-20 mb-20">
@@ -46,9 +52,15 @@ function App() {
           Envoi
         </button>
       </form>
+      <button
+        onClick={handleClickSort}
+        className="btn btn-reverse-primary mb-20"
+      >
+        Trier la liste
+      </button>
       <ul className="d-flex flex-column card p-20">
         {usersList.map((u, index) => (
-          <li key={u.name} className="d-flex mb-20">
+          <li key={u.name} className="d-flex mb-20  align-items-center">
             <span className="flex-fill mr-5">{u.name}</span>
             <button
               onClick={() => handleClickDeleteUser(index)}
