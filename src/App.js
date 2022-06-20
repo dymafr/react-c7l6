@@ -23,8 +23,8 @@ function App() {
   }
 
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center p-20">
-      <form className="d-flex flex-column card p-20">
+    <div className="d-flex flex-column justify-content-center align-items-center p-20 ">
+      <form className="d-flex flex-column card p-20 mb-20">
         <input
           onInput={(e) => handleInput(e, 'name')}
           type="text"
@@ -42,9 +42,9 @@ function App() {
         </button>
       </form>
       <ul className="d-flex flex-column card p-20">
-        {usersList.map((u) => {
-          <li>{u.name}</li>;
-        })}
+        {usersList.map((u) => (
+          <li key={u.name}>{u.name}</li>
+        ))}
       </ul>
     </div>
   );
