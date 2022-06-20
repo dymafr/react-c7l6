@@ -6,9 +6,12 @@ function App() {
     age: null,
   });
 
+  const [usersList, setUsersList] = useState([]);
+
   function handleClick(e) {
     e.preventDefault();
-    console.log(user);
+    const newUsersList = [...usersList, { ...user }];
+    setUsersList(newUsersList);
   }
 
   function handleInput(e, input) {
@@ -38,6 +41,11 @@ function App() {
           Envoi
         </button>
       </form>
+      <ul className="d-flex flex-column card p-20">
+        {usersList.map((u) => {
+          <li>{u.name}</li>;
+        })}
+      </ul>
     </div>
   );
 }
